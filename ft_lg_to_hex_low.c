@@ -29,6 +29,8 @@ char		*ft_lg_to_hex_low(unsigned long int n)
 
 	i = n;
 	j = 0;
+	if (i == 0)
+		j++;
 	while (i > 0)
 	{
 		i = i / 16;

@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+//#include <stdio.h>
+//#include <stdlib.h>
 #include "libftprintf.h"
 /*char	**ft_watinit(const char *arg0, int sizetab);
 int		ft_size_tab(const char *str);
@@ -20,17 +20,17 @@ int		main(void)
 	st = 0;
 	st = ft_size_tab(str);
 	printf("st est %d\n", st);
-	wtest = ft_watinit(str, st);
+	wtest = ft_watinit(str, st, wtest);
 	printf("watinit bien passe dans le main\n");
-	while (wtest.tab[i]/* != '\0'*/)
+	while (wtest.tab[i])
 	{
 		printf("[%s]\n", wtest.tab[i]);
-		i++
+		i++;
 	}
 	printf("test de nb_conv [%d]\n", wtest.nb_conv);
 	i = 0;
 	printf("test de pos_conv\n");
-	while(wtest.pos_conv[i] != -1)
+	while (wtest.pos_conv[i] != -1)
 	{
 		printf("[%d]", wtest.pos_conv[i]);
 		i++;

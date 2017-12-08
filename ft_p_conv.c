@@ -42,22 +42,30 @@ char		*ft_p_conv(long long unsigned int n)
 	int						j;
 	char					*tmp;
 	char					*tab;
+	int						k;
 
+	k = 2;
 	i = n;
 	j = 0;
+	if (i == 0)
+		return (ft_p_conv_null());
 	while (i > 0)
 	{
 		i = i / 16;
 		j++;
 	}
-	if (n == 0)
-		return (ft_p_conv_null());
 	if (!(tab = malloc(sizeof(char) * (3 + j))))
 		return (NULL);
 	tab[0] = '0';
 	tab[1] = 'x';
-	tab[2] = '\0';
+//	tab[2] = '\0';
+	while (k <= (2 + j))
+	{
+		tab[k] = '\0';
+		k++;
+	}
 	tmp = ft_llg_to_hex_malloc(n, j);
-	tmp = ft_strcat(tab, tmp);
-	return (tmp);
+	tab = ft_strcat(tab, tmp);
+	free(tmp);
+	return (tab);
 }

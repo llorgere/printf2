@@ -5,7 +5,7 @@
 char	**ft_watinit(const char *arg0, int sizetab);
 int		ft_size_tab(const char *str);
 */
-char	*ft_strndup(const char *s, size_t n);
+//char	*ft_strndup(const char *s, size_t n);
 wii		ft_watinit(const char *arg0, int sizetab)
 {
 	int			i;
@@ -23,8 +23,9 @@ wii		ft_watinit(const char *arg0, int sizetab)
 	wiit.nb_conv = 0;
 //	printf("arg0 est [%s] et sizetab est %d\n", arg0, sizetab);
 	wiit.pos_conv = malloc(sizeof(int) * (sizetab + 1));
-	wiit.pos_conv[sizetab] = -1;
+//	wiit.pos_conv[sizetab] = -1;
 	wiit.tab = malloc(sizeof(char *) * (sizetab + 1));
+	wiit.tab[sizetab] = NULL;
 	tmp = arg0;
 /*	wiit.tab[sizetab] = malloc(sizeof(char) * 1);
 	wiit.tab[sizetab][0] = '\0';
@@ -36,7 +37,7 @@ wii		ft_watinit(const char *arg0, int sizetab)
 			i++;
 			if (tmp[i] == '\0' || tmp[i] == '%')
 			{
-				wiit.tab[j] = ft_strndup(tmp + k, (size_t)(i - k));
+				wiit.tab[j] = ft_strndup(tmp + k, (i - k));
 				wiit.pos_conv[j] = 0;
 				j++;
 			}

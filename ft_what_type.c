@@ -32,10 +32,7 @@ char	*ft_what_type(int n, va_list ap)
 	}
 	else if (n == 8)
 	{
-//		return (ft_itoa(va_arg(ap, int)));
 		return (ft_p_conv(va_arg(ap, long long unsigned int)));
-//		return (va_arg(ap, void*));
-//		return (void*);
 	}
 	else if (n == 9)
 	{

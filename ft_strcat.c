@@ -21,8 +21,9 @@ char	*ft_strcat(char *dest, const char *src)
 	i = 0;
 	lend = 0;
 	lens = 0;
-	while (dest[lend] != '\0')
-		lend++;
+	lend = ft_strlen(dest);
+//	while (dest[lend] != '\0')
+//		lend++;
 	while (src[lens] != '\0')
 		lens++;
 	while (i <= lens)

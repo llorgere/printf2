@@ -25,6 +25,8 @@ char		*ft_sh_to_octal(unsigned short int n)
 
 	i = n;
 	j = 0;
+	if (i == 0)
+		j++;
 	while (i > 0)
 	{
 		i = i / 8;

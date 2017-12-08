@@ -29,6 +29,8 @@ char		*ft_uim_to_hex_low(uintmax_t n)
 
 	i = n;
 	j = 0;
+	if (i == 0)
+		j++;
 	while (i > 0)
 	{
 		i = i / 16;

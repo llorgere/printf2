@@ -25,6 +25,8 @@ char		*ft_lluitoa(long long unsigned int n)
 
 	i = n;
 	j = 0;
+	if (i == 0)
+		j++;
 	while (i > 0)
 	{
 		i = i / 10;

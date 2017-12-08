@@ -25,6 +25,8 @@ char		*ft_st_to_octal(size_t n)
 
 	i = n;
 	j = 0;
+	if (i == 0)
+		j++;
 	while (i > 0)
 	{
 		i = i / 8;

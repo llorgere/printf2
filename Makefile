@@ -118,7 +118,7 @@ SRC = ft_printf.c \
 
 CC = gcc
 OBJ = $(SRC:.c=.o)
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 .PHONY : all clean fclean re
 
 all : $(NAME)

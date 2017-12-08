@@ -4,7 +4,9 @@
 char	*ft_add_plus(char *str, int len)
 {
 	char	*tab;
+	int i;
 
+	i = 1;
 	if(str[0] == '-')
 		return (str);
 	else
@@ -12,7 +14,12 @@ char	*ft_add_plus(char *str, int len)
 		if (!(tab = malloc(sizeof(char) * 2 + len)))
 			return (NULL);
 		tab[0] = '+';
-		tab[len + 1] = '\0';
+//		tab[len + 1] = '\0';
+		while (i <= len + 1)
+		{
+			tab[i] = '\0';
+			i++;
+		}
 		tab = ft_strcat(tab, str);
 		free(str);
 		return (tab);
@@ -22,7 +29,9 @@ char	*ft_add_plus(char *str, int len)
 char	*ft_add_space(char *str, int len)
 {
 	char	*tab;
+	int		i;
 
+	i = 1;
 	if(str[0] == '-')
 		return (str);
 	else
@@ -30,7 +39,12 @@ char	*ft_add_space(char *str, int len)
 		if (!(tab = malloc(sizeof(char) * 2 + len)))
 			return (NULL);
 		tab[0] = ' ';
-		tab[len + 1] = '\0';
+//		tab[len + 1] = '\0';
+		while (i <= len + 1)
+		{
+			tab[i] = '\0';
+			i++;
+		}
 		tab = ft_strcat(tab, str);
 		free(str);
 		return (tab);
@@ -40,13 +54,19 @@ char	*ft_add_space(char *str, int len)
 char	*ft_add_dies_o(char *str, int len)
 {
 	char	*tab;
+	int		i;
 
+	i = 1;
 	if (str[0] == '0')
 		return (str);
 	if (!(tab = malloc(sizeof(char) * 2 + len)))
 		return (NULL);
 	tab[0] = '0';
-	tab[len + 1] = '\0';
+	while (i <= len + 1)
+	{
+		tab[i] = '\0';
+		i++;
+	}
 	tab = ft_strcat(tab, str);
 	free(str);
 	return (tab);
@@ -55,12 +75,19 @@ char	*ft_add_dies_o(char *str, int len)
 char	*ft_add_dies_x(char *str, int len)
 {
 	char	*tab;
+	int		i;
 
+	i = 2;
 	if (!(tab = malloc(sizeof(char) * 3 + len)))
 		return (NULL);
 	tab[0] = '0';
 	tab[1] = 'x';
-	tab[len + 2] = '\0';
+//	tab[len + 2] = '\0';
+	while (i <= len + 2)
+	{
+		tab[i] = '\0';
+		i++;
+	}
 	tab = ft_strcat(tab, str);
 	free(str);
 	return (tab);
@@ -69,12 +96,19 @@ char	*ft_add_dies_x(char *str, int len)
 char	*ft_add_dies_X(char *str, int len)
 {
 	char	*tab;
+	int		i;
 
+	i = 2;
 	if (!(tab = malloc(sizeof(char) * 3 + len)))
 		return (NULL);
 	tab[0] = '0';
 	tab[1] = 'X';
-	tab[len + 2] = '\0';
+//	tab[len + 2] = '\0';
+	while (i <= len + 2)
+	{
+		tab[i] = '\0';
+		i++;
+	}
 	tab = ft_strcat(tab, str);
 	free(str);
 	return (tab);
@@ -116,6 +150,11 @@ char	*ft_addw(char *str, flag_type flag, int len)
 		tab[i] = ' ';
 		i++;
 	}
+	while (i < flag.width)
+	{
+		tab[i] = '\0';
+		i++;
+	}
 	tab = ft_strcat(tab, str);
 	free(str);
 	return (tab);
@@ -142,6 +181,11 @@ char	*ft_addw0(char *str, flag_type flag, int len)
 	while (i < (flag.width - len))
 	{
 		tab[i] = '0';
+		i++;
+	}
+	while (i < flag.width)
+	{
+		tab[i] = '\0';
 		i++;
 	}
 	tab = ft_strcat(tab, str);
@@ -253,6 +297,11 @@ char	*ft_nowipr(char *str, flag_type flag, int len)
 			while (i < (flag.preci - len))
 			{
 				tab[i] = '0';
+				i++;
+			}
+			while (i < flag.preci)
+			{
+				tab[i] = '\0';
 				i++;
 			}
 			tab = ft_strcat(tab, str);

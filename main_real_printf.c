@@ -87,10 +87,10 @@ int		main(void)
 	ft_printf("test de {-010d} || [%-010d]\n", a);
 	ft_printf("test de {10-010d} || [%10-010d]\n", a);
 	ft_printf("test de { d} || [% d]\n", a);
-//	ft_printf("test de {    d} || [%    d]\n", a);
-//	ft_printf("test de {    +d} || [%    +d]\n", a);
-//	ft_printf("test de {+    d} || [%+    d]\n", a);
-//	ft_printf("test de {hhd} || [%hhd]\n", a);
+	ft_printf("test de {    d} || [%    d]\n", a);
+	ft_printf("test de {    +d} || [%    +d]\n", a);
+	ft_printf("test de {+    d} || [%+    d]\n", a);
+	ft_printf("test de {hhd} || [%hhd]\n", a);
 	ft_printf("celui la test de {hd} || [%hu]\n", b);
 	ft_printf("et celui ci test de {hhd} || [%hhd]\n", d);
 	ft_printf("test de {lld} || [%lld]\n", e);

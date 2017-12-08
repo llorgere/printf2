@@ -1,5 +1,5 @@
 #include "libftprintf.h"
-#include <stdio.h>
+
 static char	*ft_int_to_hex_malloc(unsigned int n, int j)
 {
 	char	*tab;
@@ -28,6 +28,8 @@ char		*ft_int_to_hex_low(unsigned int n)
 
 	i = n;
 	j = 0;
+	if (i == 0)
+		j++;
 	while (i > 0)
 	{
 		i = i / 16;

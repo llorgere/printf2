@@ -22,6 +22,7 @@ int		ft_printf(const char *format, ...)
 		{
 			ret = ret + ft_strlen(wiit.tab[i]);
 			ft_putstr(wiit.tab[i]);
+			free(wiit.tab[i]);
 		}
 		else if (wiit.pos_conv[i] == 1)
 		{
@@ -30,16 +31,21 @@ int		ft_printf(const char *format, ...)
 			cur_arg = ft_what_type(flag.conv_num, ap);
 		//	printf("str est [%s]\n", cur_arg);
 			if(flag.conv_num == -1)
+			{
+	//			free(cur_arg);
 				cur_arg = ft_strdup(wiit.tab[i]);
+			}
 			else
 				cur_arg = ft_flag_use(cur_arg, flag);
 			ret = ret + ft_strlen(cur_arg);
+			free(wiit.tab[i]);
 			ft_putstr(cur_arg);
 			free(cur_arg);
 		}
 		i++;
 	}
 	va_end(ap);
+	free(wiit.pos_conv);
 	free(wiit.tab);
 	return (ret);
 }
