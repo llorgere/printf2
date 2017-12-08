@@ -6,12 +6,14 @@ int		main()
 	int 		a;
 	long int 	b;
 	long long int c;
+	int 		d;
 
 	a = 1789;
 	b = -2999900;
 	c = -989849849452;
+	d = 0;
 
-	ft_printf("test de a pour d [%-10.6d]\n", a);
+/*	ft_printf("test de a pour d [%-10.6d]\n", a);
 	ft_printf("test de a pour o [%o]\n", a);
 	ft_printf("test de a pour u [%u]\n", a);
 	ft_printf("test de a pour x [%x]\n", a);
@@ -41,5 +43,20 @@ int		main()
 	ft_printf("test de a pour u \n", a);
 	ft_printf("test de a pour x \n", a);
 	ft_printf("test de a pour X \n", a);
+*/	printf("test de a pour x [%#x]\n", d);
+	ft_printf("test de a pour x [%#x]\n", d);
+	printf("test de a pour x [%#5.x]\n", d);
+	ft_printf("test de a pour x [%#5.x]\n", d);
+	printf("test de a pour x [%#o]\n", d);
+	ft_printf("test de a pour x [%#o]\n", d);
+	printf("test de a pour x [%5.o]\n", d);
+	ft_printf("test de a pour x [%5.o]\n", d);
+	printf("test de a pour x [%#5.o]\n", d);
+	ft_printf("test de a pour x [%#5.o]\n", d);
+	printf("test de a pour x [%.o]\n", d);
+	ft_printf("test de a pour x [%.o]\n", d);
+	printf("test de a pour x [%.d]\n", 1);
+	ft_printf("test de a pour x [%.d]\n", 1);
+	ft_printf("test de a pour x [%#5.o]\n", d);
 	return (0);
 }

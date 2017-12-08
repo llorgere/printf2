@@ -51,16 +51,28 @@ char	*ft_add_space(char *str, int len)
 	}
 }
 
+char	*ft_add_preci_empty()
+{
+	char	*tab;
+
+	if(!(tab = malloc(sizeof(char) * 1)))
+		return (NULL);
+	tab[0] = '\0';
+	return (tab);
+}
+
 char	*ft_add_dies_o(char *str, int len)
 {
 	char	*tab;
 	int		i;
 
 	i = 1;
+//	printf("add dies o 1| str est [%s]\n", str);
 	if (str[0] == '0')
 		return (str);
 	if (!(tab = malloc(sizeof(char) * 2 + len)))
 		return (NULL);
+//	printf("add dies o 2| str est [%s]\n", str);
 	tab[0] = '0';
 	while (i <= len + 1)
 	{
@@ -69,6 +81,7 @@ char	*ft_add_dies_o(char *str, int len)
 	}
 	tab = ft_strcat(tab, str);
 	free(str);
+//	printf("add dies o 3| tab est [%s]\n", tab);
 	return (tab);
 }
 
@@ -116,8 +129,17 @@ char	*ft_add_dies_X(char *str, int len)
 
 char	*ft_add_dies(char *str, flag_type flag, int len)
 {
-	if (flag.dies == 1 && ((str[0] != '0' && len == 1) ||
-				(len > 1)))
+//	printf("tab est [%s] et len est [%d] && flag.presci est [%d] && flag.conv_num est [%d]\n", str, len, flag.preci, flag.conv_num);
+	if (len == 0 && flag.preci == 0 && flag.conv_num != 3 &&
+				flag.conv_num != 11 && flag.conv_num != 18 &&
+				flag.conv_num != 23 && flag.conv_num != 28 &&
+				flag.conv_num != 33 && flag.conv_num != 38)
+	{
+//		printf("test de add dies 1\n");
+		return (str);
+	}
+	else if (flag.dies == 1 && ((str[0] != '0' && len == 1) ||
+				(len > 1) || (len == 0)))
 	{
 		if (flag.conv_num == 3 || flag.conv_num == 11 ||
 				flag.conv_num == 18 || flag.conv_num == 23 ||
@@ -130,10 +152,22 @@ char	*ft_add_dies(char *str, flag_type flag, int len)
 				flag.conv_num == 39)
 			return (ft_add_dies_x(str, len));
 		else
+		{
+//			printf("test de add dies 2\n");
 			return (ft_add_dies_X(str, len));
+		}
 	}
-	else
+/*	else if (flag.dies == 1 && len == 1 && str[0] == '0' &&
+			flag.preci == 0 && (flag.conv_num != 3 || flag.conv_num != 11 ||
+				flag.conv_num != 18 || flag.conv_num != 23 ||
+				flag.conv_num != 28 || flag.conv_num != 33 ||
+				flag.conv_num != 38))
 		return (str);
+*/	else
+	{
+//		printf("test de add dies 3\n");
+		return (str);
+	}
 }
 
 char	*ft_addw(char *str, flag_type flag, int len)
@@ -272,6 +306,12 @@ char	*ft_nowipr(char *str, flag_type flag, int len)
 			return (ft_nowinopr(tab, flag, flag.preci));
 		}
 	}
+	else if (len == 1 && str[0] == '0' && flag.preci == 0)
+	{
+		tab = ft_add_preci_empty();
+		free(str);
+		return (ft_nowinopr(tab, flag, 0));
+	}
 	else
 	{	if (str[0] == '-')
 		len--;
@@ -356,11 +396,11 @@ char	*ft_flag_use(char *str, flag_type flag)
 	len = ft_strlen(str);
 	flag = ft_flag_adjust(flag);
 //	printf("test des valeurs des flags\ncn : [%d] | wi : [%d] | pr : [%d] | - : [%d] | + : [%d] | # : [%d] | 0 : [%d] | sp : [%d] | . : [%d] | et str est [%s]\n", flag.conv_num, flag.width, flag.preci, flag.minus, flag.plus, flag.dies, flag.zero, flag.space, flag.point, str);
-	if (flag.width <= 0 && flag.preci <= 0)
+	if (flag.width <= 0 && flag.preci < 0)
 		return (ft_nowinopr(str, flag, len));
-	if (flag.width <= 0 && flag.preci > 0)
+	if (flag.width <= 0 && flag.preci >= 0)
 		return (ft_nowipr(str, flag, len));
-	if (flag.width > 0 && flag.preci <= 0)
+	if (flag.width > 0 && flag.preci < 0)
 		return (ft_winopr(str, flag, len));
 	else
 		return (ft_wipr(str, flag, len));
