@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-static char	*ft_wchardup_null()
+static char	*ft_strduppf_null()
 {
 	char	*tab;
 
@@ -28,19 +28,19 @@ static char	*ft_wchardup_null()
 	return (NULL);
 }
 
-char	*ft_wchardup(wchar_t *s)
+char		*ft_strduppf(const char *s)
 {
 	int		i;
 	int		j;
 	char	*moc;
 
 	if (s == NULL)
-		return (ft_wchardup_null());
+		return (ft_strduppf_null());
 	i = 0;
 	j = 0;
 	while (s[i] != '\0')
 		i++;
-	moc = (char*)malloc(sizeof(wchar_t) * (i));
+	moc = (char*)malloc(sizeof(*moc) * (i + 1));
 	if (!moc)
 		return (NULL);
 	while (j < i)

@@ -11,6 +11,7 @@
 # include <sys/types.h>
 # include <stdarg.h>
 # include <wchar.h>
+# include <stdio.h>
 
 typedef struct
 {
@@ -44,6 +45,14 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct
+{
+	int		len;
+	char	*tab;
+}					spe_c;
+
+spe_c				ft_special_c(char *str, flag_type flag);
+void				ft_nputstr(char const *s, int n);
 char				*ft_pc_conv();
 char				*ft_add_preci_empty();
 char				*ft_add_plus(char *str, int len);
@@ -121,6 +130,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *s);
 char				*ft_strdup(const char *s);
+char				*ft_strduppf(const char *s);
 char				*ft_strcpy(char *dest, const char *src);
 char				*ft_strncpy(char *dest, char *src, size_t n);
 char				*ft_strcat(char *dest, const char *src);

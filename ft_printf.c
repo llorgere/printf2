@@ -9,6 +9,7 @@ int		ft_printf(const char *format, ...)
 	wii			wiit;
 	char		*cur_arg = (char *)format;
 	int			ret;
+	spe_c		spec;
 	
 	ret = 0;
 	i = 0;
@@ -29,18 +30,27 @@ int		ft_printf(const char *format, ...)
 			flag = ft_arg_conv(wiit.tab[i]); 
 //			printf("test des valeurs des flags\ncn : [%d] | wi : [%d] | pr : [%d] | - : [%d] | + : [%d] | # : [%d] | 0 : [%d] | sp : [%d] | . : [%d] |\n", flag.conv_num, flag.width, flag.preci, flag.minus, flag.plus, flag.dies, flag.zero, flag.space, flag.point);
 			cur_arg = ft_what_type(flag.conv_num, ap);
+//			printf("cur_arg est [%c%c]", cur_arg[0], cur_arg[1]);
 		//	printf("str est [%s]\n", cur_arg);
 			if(flag.conv_num == -1)
-			{
-	//			free(cur_arg);
 				cur_arg = ft_strdup(wiit.tab[i]);
-			}
+			else if (flag.conv_num == 6 || 14)
+				spec = ft_special_c(cur_arg, flag);
 			else
 				cur_arg = ft_flag_use(cur_arg, flag);
-			ret = ret + ft_strlen(cur_arg);
+			if (flag.conv_num == 6 || 14)
+			{
+				ft_nputstr(spec.tab, spec.len);
+				ret = ret + spec.len;
+				free(spec.tab);
+			}
+			else 
+			{
+				ret = ret + ft_strlen(cur_arg) ;
+				ft_putstr(cur_arg);
+				free(cur_arg);
+			}
 			free(wiit.tab[i]);
-			ft_putstr(cur_arg);
-			free(cur_arg);
 		}
 		i++;
 	}

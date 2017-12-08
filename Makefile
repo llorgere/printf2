@@ -13,6 +13,7 @@
 NAME = libftprintf.a
 SRC = ft_printf.c \
 	  ft_pc_conv.c \
+	  ft_nputstr.c \
 	  ft_watinit.c \
 	  ft_size_tab.c \
 	  ft_what_type.c \

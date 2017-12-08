@@ -396,7 +396,9 @@ char	*ft_flag_use(char *str, flag_type flag)
 	len = ft_strlen(str);
 	flag = ft_flag_adjust(flag);
 //	printf("test des valeurs des flags\ncn : [%d] | wi : [%d] | pr : [%d] | - : [%d] | + : [%d] | # : [%d] | 0 : [%d] | sp : [%d] | . : [%d] | et str est [%s]\n", flag.conv_num, flag.width, flag.preci, flag.minus, flag.plus, flag.dies, flag.zero, flag.space, flag.point, str);
-	if (flag.width <= 0 && flag.preci < 0)
+/*	if (flag.conv_num == 6 || flag.conv_num == 14)
+		return (ft_special_c(str, flag));
+*/	if (flag.width <= 0 && flag.preci < 0)
 		return (ft_nowinopr(str, flag, len));
 	if (flag.width <= 0 && flag.preci >= 0)
 		return (ft_nowipr(str, flag, len));
@@ -404,4 +406,34 @@ char	*ft_flag_use(char *str, flag_type flag)
 		return (ft_winopr(str, flag, len));
 	else
 		return (ft_wipr(str, flag, len));
+}
+
+spe_c	ft_special_c(char *str, flag_type flag)
+{
+	int		i;
+	spe_c	spec;
+
+	spec.len = 1;
+	if (flag.width > spec.len)
+	{
+		spec.tab = malloc(sizeof(char)* flag.width + 1);
+		spec.tab[flag.width] = '\0';
+		while (i < flag.width)
+		{
+			spec.tab[i] = ' ';
+			i++;
+		}
+		if (flag.minus == 0)
+			spec.tab[flag.width - 1] = str[0];
+		else
+			spec.tab[0] = str[0];
+		spec.len = flag.width;
+	}
+	else
+	{
+		spec.tab = str;
+		free(str);
+		return (spec);
+	}
+	return (spec);
 }

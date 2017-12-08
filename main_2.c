@@ -43,7 +43,7 @@ int		main()
 	ft_printf("test de a pour u \n", a);
 	ft_printf("test de a pour x \n", a);
 	ft_printf("test de a pour X \n", a);
-*/	printf("test de a pour x [%#x]\n", d);
+	printf("test de a pour x [%#x]\n", d);
 	ft_printf("test de a pour x [%#x]\n", d);
 	printf("test de a pour x [%#5.x]\n", d);
 	ft_printf("test de a pour x [%#5.x]\n", d);
@@ -57,6 +57,15 @@ int		main()
 	ft_printf("test de a pour x [%.o]\n", d);
 	printf("test de a pour x [%.d]\n", 1);
 	ft_printf("test de a pour x [%.d]\n", 1);
-	ft_printf("test de a pour x [%#5.o]\n", d);
+	printf("%   %\n", "test");
+	ft_printf("%   %\n", "test");
+	printf("[%010s]\n", NULL);
+	printf("[%010.6s]\n", NULL);
+	printf("[%010ls]\n", NULL);
+	printf("[%10.5ls]\n", NULL);
+*/	printf("[%10c]\n");
+	ft_printf("[%10c]\n");
+//	ft_printf("[%s]\n", NULL);
+//	ft_printf("[%.2c]\n", NULL);
 	return (0);
 }
