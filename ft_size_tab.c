@@ -26,7 +26,7 @@ int		ft_size_tab(const char *str)
 			if (tmp[i] == '\0' || tmp[i] == '%')
 			{
 				sizetab++;
-				printf("test sizetab 1\n");
+	//			printf("test sizetab 1\n");
 			}
 //			printf("test de ft_size_tab 2.2 et arg0 est [%c] et sizetab est %d\n", tmp[i], sizetab);
 		}
@@ -50,7 +50,7 @@ int		ft_size_tab(const char *str)
 				i++;
 			printf("test de ft_size_tab 7\n");
 */			sizetab++;
-			printf("sizetab 2\n");
+	//		printf("sizetab 2\n");
 			if(tmp[i] == '\0')
 				return (sizetab);
 			i++;
