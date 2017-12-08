@@ -138,6 +138,8 @@ int			ft_one_conv(char *str)
 		return (14);
 	else if (str[0] == 'S')
 		return (15);
+	else if (str[0] == '%')
+		return (41);
 	else
 		return (0);
 }
@@ -215,7 +217,7 @@ flag_type		ft_arg_conv(char *tab)
 			tab[i] != 'U' && tab[i] !='O' && tab[i] != 'o' &&
 			tab[i] != 'u' && tab[i] !='x' && tab[i] !='X' &&
 			tab[i] != 'c' && tab[i] !='C'  && tab[i] !='\0' &&
-			tab[i] != 'l' && tab[i] != 'j' && tab[i] != 'h' && tab[i] != 'z')
+			tab[i] != 'l' && tab[i] != 'j' && tab[i] != 'h' && tab[i] != 'z' && tab[i] != '%')
 	{
 		if (tab[i] == '-' && flag.minus == 0 && flag.width < 0 && flag.preci < 0)
 		{

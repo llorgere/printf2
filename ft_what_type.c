@@ -162,6 +162,10 @@ char	*ft_what_type(int n, va_list ap)
 	{
 		return (ft_st_to_hex_up(va_arg(ap, size_t)));
 	}
+	else if (n == 41)
+	{
+		return (ft_pc_conv());
+	}
 	else
 		return (NULL);
 }

@@ -23,7 +23,7 @@ wii		ft_watinit(const char *arg0, int sizetab)
 	wiit.nb_conv = 0;
 //	printf("arg0 est [%s] et sizetab est %d\n", arg0, sizetab);
 	wiit.pos_conv = malloc(sizeof(int) * (sizetab + 1));
-//	wiit.pos_conv[sizetab] = -1;
+	wiit.pos_conv[sizetab] = -1;
 	wiit.tab = malloc(sizeof(char *) * (sizetab + 1));
 	wiit.tab[sizetab] = NULL;
 	tmp = arg0;
@@ -44,19 +44,11 @@ wii		ft_watinit(const char *arg0, int sizetab)
 		}
 		if (tmp[i] == '\0')
 			return (wiit);
-		else if (tmp[i] == '%' && tmp[i + 1] == '%')
-		{
-			wiit.tab[j] = malloc(sizeof(char) * 2);
-			wiit.tab[j][0] = '%';
-			wiit.tab[j][1] = '\0';
-			i = i + 2;
-			wiit.pos_conv[j] = 0;
-			j++;
-		}
 		else if (tmp[i] == '%')
 		{
 			k = i;
-			while (tmp[i] != 'd' && tmp[i] != 'i' && tmp[i] != 's' && tmp[i] != 'p' && tmp[i] != 'S' && tmp[i] !='D' && tmp[i] !='U' && tmp[i] !='O' && tmp[i] != 'o' && tmp[i] !='u' && tmp[i] !='x' && tmp[i] !='X' && tmp[i] !='c' && tmp[i] !='C'  && tmp[i] !='\0')
+			i++;
+			while (tmp[i] != 'd' && tmp[i] != 'i' && tmp[i] != 's' && tmp[i] != 'p' && tmp[i] != 'S' && tmp[i] !='D' && tmp[i] !='U' && tmp[i] !='O' && tmp[i] != 'o' && tmp[i] !='u' && tmp[i] !='x' && tmp[i] !='X' && tmp[i] !='c' && tmp[i] !='C'  && tmp[i] !='\0' && tmp[i] != '%')
 				i++;
 			wiit.tab[j] = ft_strndup(tmp + k, (i - k + 1));
 			wiit.nb_conv++;
@@ -72,3 +64,15 @@ wii		ft_watinit(const char *arg0, int sizetab)
 	}
 	return (wiit);
 }
+
+/*
+		else if (tmp[i] == '%' && tmp[i + 1] == '%')
+		{
+			wiit.tab[j] = malloc(sizeof(char) * 2);
+			wiit.tab[j][0] = '%';
+			wiit.tab[j][1] = '\0';
+			i = i + 2;
+			wiit.pos_conv[j] = 0;
+			j++;
+		}
+*/

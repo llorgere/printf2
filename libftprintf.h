@@ -44,6 +44,7 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+char				*ft_pc_conv();
 char				*ft_add_plus(char *str, int len);
 char				*ft_add_space(char *str, int len);
 char				*ft_add_dies_o(char *str, int len);
