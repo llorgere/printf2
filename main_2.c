@@ -73,6 +73,14 @@ int		main()
 	ft_printf("[%s]\n", NULL);
 	printf("[%s] [%s]\n", NULL, "string");
 	ft_printf("[%s] [%s]\n", NULL, "string");
+	printf("llu est [%llu]\n", 4999999999);
+	ft_printf("llu est [%llu]\n", 4999999999);
+	printf("hU est [%hU]\n", 4294967296);
+//	ft_printf("hU est [%hU]\n", 4294967296);
+	printf("hhd est [%hhd]\n", -128);
+	ft_printf("hhd est [%hhd]\n", -128);
+	printf("lld est [%lld]\n", -9223372036854775808);
+	printf("lld est [%lld]\n", -9223372036854775808);
 //	ft_printf("[%s]\n", NULL);
 //	ft_printf("[%.2c]\n", NULL);
 	return (0);

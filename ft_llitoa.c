@@ -10,9 +10,9 @@ static char	*ft_llitoa_min(long long int n)
 		return (0);
 	tab[0] = '-';
 	tab[20] = '\0';
-	tab[19] = '7';
+	tab[19] = '8';
 	n = -(n / 10);
-	j = 10;
+	j = 18;
 	while (n > 0)
 	{
 		tab[j - 1] = (n % 10) + 48;
@@ -52,7 +52,7 @@ char		*ft_llitoa(long long int n)
 
 	i = n;
 	j = 0;
-	if (n == -9223372036854775807)
+	if (n == -9223372036854775808)
 		return (ft_llitoa_min(n));
 	else if (i <= 0)
 	{

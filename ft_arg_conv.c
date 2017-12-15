@@ -51,9 +51,9 @@ int			ft_three_l_conv(char *str)
 	if (str[2] == 'd' || str[2] == 'i')
 		return (16);
 	else if (str[2] == 'u')
-		return (18);
+		return (17);
 	else if (str[2] == 'o')
-		return (20);
+		return (18);
 	else if (str[2] == 'x')
 		return (19);
 	else if (str[2] == 'X')
@@ -74,6 +74,12 @@ int			ft_two_h_conv(char *str)
 		return (24);
 	else if (str[1] == 'X')
 		return (25);
+	else if (str[1] == 'D')
+		return (9);
+	else if (str[1] == 'U')
+		return (10);
+	else if (str[1] == 'O')
+		return (11);
 	else
 		return (0);
 }

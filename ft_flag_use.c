@@ -498,6 +498,7 @@ char	*ft_nowipr(char *str, flag_type flag, int len)
 			tab = ft_strcat(tab, str);
 			free(str);
 			return (ft_nowinopr(tab, flag, ft_strlen(tab)));
+		return (tab);
 		}
 	}
 }

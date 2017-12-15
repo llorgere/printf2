@@ -7,18 +7,20 @@
 */
 #include "libftprintf.h"
 
-static char	*ft_ctoa_min(char n)
+static char	*ft_ctoa_min()
 {
-	int			j;
+//	int			j;
 	char	*tab;
 
-	j = 0;
-	if (!(tab = (char *)malloc(sizeof(*tab) * (4))))
+//	j = 0;
+	if (!(tab = (char *)malloc(sizeof(*tab) * (5))))
 		return (0);
 	tab[0] = '-';
-	tab[3] = '\0';
-	tab[2] = '8';
-	n = -(n / 10);
+	tab[1] = '1';
+	tab[2] = '2';
+	tab[3] = '8';
+	tab[4] = '\0';
+/*	n = -(n / 10);
 	j = 10;
 	while (n > 0)
 	{
@@ -26,7 +28,7 @@ static char	*ft_ctoa_min(char n)
 		n = n / 10;
 		j--;
 	}
-	return (tab);
+*/	return (tab);
 }
 
 static char	*ft_ctoa_malloc(char n, int j)
@@ -61,7 +63,7 @@ char		*ft_ctoa(char n)
 	i = n;
 	j = 0;
 	if (n == -128)
-		return (ft_ctoa_min(n));
+		return (ft_ctoa_min());
 	else if (i <= 0)
 	{
 		i = -i;
