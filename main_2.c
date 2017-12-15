@@ -80,7 +80,11 @@ int		main()
 	printf("hhd est [%hhd]\n", -128);
 	ft_printf("hhd est [%hhd]\n", -128);
 	printf("lld est [%lld]\n", -9223372036854775808);
-	printf("lld est [%lld]\n", -9223372036854775808);
+	printf("lld est [%lld]\n", -9223372036854775809);
+	printf("03.2d est [%03.0d]\n", 1);
+	ft_printf("03.2d est [%03.0d]\n", 1);
+	printf("03.2d est [%3.2d]\n", 0);
+	ft_printf("03.2d est [%3.2d]\n", 0);
 //	ft_printf("[%s]\n", NULL);
 //	ft_printf("[%.2c]\n", NULL);
 	return (0);
