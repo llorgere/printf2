@@ -47,7 +47,7 @@ int		ft_printf(const char *format, ...)
 				if(!(spec.tab))
 					return (-1);
 				ft_nputstr(spec.tab, spec.len);
-				ret = ret = spec.len;
+				ret = ret + spec.len;
 				if(flag.width > 1)
 					free(spec.tab);
 //				free(cur_arg);
