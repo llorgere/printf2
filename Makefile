@@ -116,6 +116,7 @@ SRC = ft_printf.c \
 	  ft_flag_use.c \
 	  ft_wintdup.c \
 	  ft_wchardup.c \
+	  ft_strduppf.c \
 	  ft_p_conv.c
 
 CC = gcc

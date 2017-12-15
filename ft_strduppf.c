@@ -25,7 +25,7 @@ static char	*ft_strduppf_null()
 	tab[4] = 'l';
 	tab[5] = ')';
 	tab[6] = '\0';
-	return (NULL);
+	return (tab);
 }
 
 char		*ft_strduppf(const char *s)

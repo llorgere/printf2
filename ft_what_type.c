@@ -28,7 +28,7 @@ char	*ft_what_type(int n, va_list ap)
 	}
 	else if	(n == 7)
 	{
-		return (ft_strdup(va_arg(ap, const char*)));
+		return (ft_strduppf(va_arg(ap, const char*)));
 	}
 	else if (n == 8)
 	{

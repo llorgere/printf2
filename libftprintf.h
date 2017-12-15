@@ -53,6 +53,7 @@ typedef struct
 
 spe_c				ft_special_c(char *str, flag_type flag);
 void				ft_nputstr(char const *s, int n);
+char				*ft_strduppf(const char	*s);
 char				*ft_pc_conv();
 char				*ft_add_preci_empty();
 char				*ft_add_plus(char *str, int len);
