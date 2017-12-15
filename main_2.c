@@ -67,6 +67,8 @@ int		main()
 	ft_printf("[%#08x]\n", 42);
 	printf("[%0+5d]\n", 42);
 	ft_printf("[%0+5d]\n", 42);
+	printf("[%0+5d]\n", -42);
+	ft_printf("[%0+5d]\n", -42);
 //	printf("[%0+5d]\n", 42);
 //	printf("[%s]\n", NULL);
 //	ft_printf("[%s]\n", NULL);

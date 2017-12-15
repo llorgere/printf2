@@ -29,7 +29,7 @@ char	*ft_add_plus(char *str, int len)
 
 static char	*ft_add_plus0(char *str, flag_type flag, int len)
 {
-	if(flag.width > len)
+	if(flag.width > len && str[0] != '-')
 	{
 		str[0] = '+';
 		return (str);
@@ -40,7 +40,7 @@ static char	*ft_add_plus0(char *str, flag_type flag, int len)
 
 static char	*ft_add_space0(char *str, flag_type flag, int len)
 {
-	if(flag.width > len)
+	if(flag.width > len && str[0] != '-')
 	{
 		str[0] = ' ';
 		return (str);
