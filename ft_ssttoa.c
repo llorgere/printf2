@@ -1,5 +1,27 @@
 #include "libftprintf.h"
 
+static char	*ft_ssttoa_min(ssize_t n)
+{
+	int		j;
+	char	*tab;
+
+	j = 0;
+	if (!(tab = (char *)malloc(sizeof(*tab) * (21))))
+		return (0);
+	tab[0] = '-';
+	tab[20] = '\0';
+	tab[19] = '8';
+	n = -(n / 10);
+	j = 18;
+	while (n > 0)
+	{
+		tab[j - 1] = (n % 10) + 48;
+		n = n / 10;
+		j--;
+	}
+	return (tab);
+}
+
 static char	*ft_ssttoa_malloc(ssize_t n, int j)
 {
 	char	*tab;
@@ -30,7 +52,9 @@ char		*ft_ssttoa(ssize_t n)
 
 	i = n;
 	j = 0;
-	if (i <= 0)
+	if (n == -9223372036854775808)
+		return (ft_ssttoa_min(n));
+	else if (i <= 0)
 	{
 		i = -i;
 		j++;
