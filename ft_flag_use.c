@@ -21,9 +21,32 @@ char	*ft_add_plus(char *str, int len)
 			i++;
 		}
 		tab = ft_strcat(tab, str);
+	//	printf("tab est [%s]", tab);
 		free(str);
 		return (tab);
 	}
+}
+
+static char	*ft_add_plus0(char *str, flag_type flag, int len)
+{
+	if(flag.width > len)
+	{
+		str[0] = '+';
+		return (str);
+	}
+	else 
+		return (ft_add_plus(str, len));
+}
+
+static char	*ft_add_space0(char *str, flag_type flag, int len)
+{
+	if(flag.width > len)
+	{
+		str[0] = ' ';
+		return (str);
+	}
+	else 
+		return (ft_add_space(str, len));
 }
 
 char	*ft_add_space(char *str, int len)
@@ -125,6 +148,122 @@ char	*ft_add_dies_X(char *str, int len)
 	tab = ft_strcat(tab, str);
 	free(str);
 	return (tab);
+}
+
+static char	*ft_add_dies_o0(char *str, flag_type flag, int len)
+{
+	if(flag.width > len)
+	{
+		str[0] = '0';
+		return (str);
+	}
+	else 
+		return (ft_add_dies_o(str, len));
+}
+
+static char	*ft_add_dies_x0(char *str, flag_type flag, int len)
+{
+	char	*tab;
+	int		i;
+
+	i = 2;
+	if(flag.width > len + 1)
+	{
+		str[0] = '0';
+		str[1] = 'x';
+		return (str);
+	}
+	else if (flag.width == len + 1)
+	{
+		if(!(tab = malloc(sizeof(char) * flag.width + 2)))
+			return (0);
+		tab[0] = '0';
+		tab[1] = 'x';
+		while (i <= flag.width + 1)
+		{
+			tab[i] = '\0';
+			i++;
+		}
+		tab = ft_strcat(tab, str + 1);
+		free(str);
+		return (tab);
+	}
+	else 
+		return (ft_add_dies_x(str, len));
+}
+
+static char	*ft_add_dies_X0(char *str, flag_type flag, int len)
+{
+	char	*tab;
+	int		i;
+
+	i = 2;
+	if(flag.width > len + 1)
+	{
+		str[0] = '0';
+		str[1] = 'X';
+		return (str);
+	}
+	else if (flag.width == len + 1)
+	{
+		if(!(tab = malloc(sizeof(char) * flag.width + 2)))
+			return (0);
+		tab[0] = '0';
+		tab[1] = 'X';
+		while (i <= flag.width + 1)
+		{
+			tab[i] = '\0';
+			i++;
+		}
+		tab = ft_strcat(tab, str + 1);
+		free(str);
+		return (tab);
+	}
+	else 
+		return (ft_add_dies_X(str, len));
+}
+
+static char	*ft_add_dies0(char *str, flag_type flag, int len)
+{
+//	printf("tab est [%s] et len est [%d] && flag.presci est [%d] && flag.conv_num est [%d]\n", str, len, flag.preci, flag.conv_num);
+	if (len == 0 && flag.preci == 0 && flag.conv_num != 3 &&
+				flag.conv_num != 11 && flag.conv_num != 18 &&
+				flag.conv_num != 23 && flag.conv_num != 28 &&
+				flag.conv_num != 33 && flag.conv_num != 38)
+	{
+//		printf("test de add dies 1\n");
+		return (str);
+	}
+	else if (flag.dies == 1 && ((str[0] != '0' && len == 1) ||
+				(len > 1) || (len == 0)))
+	{
+		if (flag.conv_num == 3 || flag.conv_num == 11 ||
+				flag.conv_num == 18 || flag.conv_num == 23 ||
+				flag.conv_num == 28 || flag.conv_num == 33 ||
+				flag.conv_num == 38)
+			return (ft_add_dies_o0(str, flag, len));
+		else if (flag.conv_num == 4 || flag.conv_num == 12 ||
+				flag.conv_num == 19 || flag.conv_num == 24 ||
+				flag.conv_num == 29 || flag.conv_num == 34 ||
+				flag.conv_num == 39)
+			return (ft_add_dies_x0(str, flag,  len));
+		else
+		{
+//			printf("test de add dies 2\n");
+			return (ft_add_dies_X0(str, flag, len));
+		}
+	}
+/*	else if (flag.dies == 1 && len == 1 && str[0] == '0' &&
+			flag.preci == 0 && (flag.conv_num != 3 || flag.conv_num != 11 ||
+				flag.conv_num != 18 || flag.conv_num != 23 ||
+				flag.conv_num != 28 || flag.conv_num != 33 ||
+				flag.conv_num != 38))
+		return (str);
+*/	else
+	{
+//		printf("test de add dies 3\n");
+		return (str);
+	}
 }
 
 char	*ft_add_dies(char *str, flag_type flag, int len)
@@ -250,6 +389,18 @@ char	*ft_addwmin(char *str, flag_type flag, int len)
 	return (tab);
 }
 
+static char	*ft_addwf0(char *str, flag_type flag, int len)
+{
+	if (flag.dies == 1)
+		return (ft_add_dies0(str, flag, len));
+	if (flag.plus == 1)
+		return (ft_add_plus0(str, flag, len));
+	else if (flag.space == 1)
+		return (ft_add_space0(str, flag, len));
+	else
+		return (str);
+}
+
 char	*ft_addwf(char *str, flag_type flag, int len)
 {
 	if (flag.dies == 1)
@@ -277,8 +428,8 @@ char	*ft_winopr(char *str, flag_type flag, int len)
 		}
 		else if (flag.zero == 1)
 		{
-			tab = ft_addwf(str, flag, len);
-			return (ft_addw0(tab, flag, ft_strlen(tab)));
+			tab = ft_addw0(str, flag, len);
+			return (ft_addwf0(tab, flag, len));
 		}
 		else
 		{
