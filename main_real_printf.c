@@ -38,7 +38,7 @@ int		main(void)
 	C = 'c';
 	D = 'd';
 //	*g = 16;
-	printf("test de {1.2d} || [%1.2d]\n", a);
+/*	printf("test de {1.2d} || [%1.2d]\n", a);
 	printf("test de {10.6d} || [%00.d]\n", a);
 	printf("test de {-010d} || [%-010d]\n", a);
 	printf("test de { d} || [% d]\n", a);
@@ -80,7 +80,7 @@ int		main(void)
 	printf("test de #o pour 0 [%#10.5o]\n", m);
 	printf("test de precision sur nombre negatif [%10d]\n", c);
 	printf("on passe au mien\n");
-	ft_printf("test de {+.10d} || [%10.6d]\n", a);
+*/	ft_printf("test de {+.10d} || [%10.6d]\n", a);
 	ft_printf("test de {+010d} || [%+10d]\n", a);
 	ft_printf("test de {1.2d} || [%1.2d]\n", a);
 	ft_printf("test de {10.6d} || [%00.d]\n", a);
@@ -129,17 +129,17 @@ int		main(void)
 	ft_printf("test de precision sur nombre negatif [%10d]\n", c);
 	ft_printf("test de {- 10d} || [%- 10d]\n", a);
 	ft_printf("test de {-+ 0#10x} || [%#+-010.6o]\n", a);
-	printf("test de {- 10d} || [%- 10d]\n", a);
+/*	printf("test de {- 10d} || [%- 10d]\n", a);
 	printf("test de {-+ 0#10x} || [%#+-010.6o]\n", a);
 	printf("test de {10-010d} || [%10-010d]\n", a);
-	ft_printf("test de {10-010d} || [%10-010d]\n", a);
+*/	ft_printf("test de {10-010d} || [%10-010d]\n", a);
 //	printf("test de {+.10d} || [%10.6d]\n", a);
 //	printf("test de {+010d} || [%+10d]\n", a);
-	printf("test de lc [%lc]\n", i);
+//	printf("test de lc [%lc]\n", i);
 	ft_printf("test de lc [%lc]\n", i);
-	printf("test de ls [%ls]\n", j);
+//	printf("test de ls [%ls]\n", j);
 	ft_printf("test de ls [%ls]\n", j);
-	printf("test de p [%p]\n", a);
+//	printf("test de p [%p]\n", a);
 	ft_printf("test de p [%p]\n", a);
 	return (0);
 }

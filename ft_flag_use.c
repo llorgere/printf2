@@ -414,6 +414,8 @@ spe_c	ft_special_c(char *str, flag_type flag)
 	spe_c	spec;
 
 	spec.len = 1;
+	i = 0;
+	flag = ft_flag_adjust(flag);
 	if (flag.width > spec.len)
 	{
 		spec.tab = malloc(sizeof(char)* flag.width + 1);
@@ -432,7 +434,7 @@ spe_c	ft_special_c(char *str, flag_type flag)
 	else
 	{
 		spec.tab = str;
-		free(str);
+//		free(str);
 		return (spec);
 	}
 	return (spec);

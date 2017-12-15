@@ -33,12 +33,32 @@ int		ft_printf(const char *format, ...)
 //			printf("cur_arg est [%c%c]", cur_arg[0], cur_arg[1]);
 		//	printf("str est [%s]\n", cur_arg);
 			if(flag.conv_num == -1)
+			{
 				cur_arg = ft_strdup(wiit.tab[i]);
-			else if (flag.conv_num == 6 || 14)
+				ret = ret + ft_strlen(cur_arg) ;
+				ft_putstr(cur_arg);
+//				free(cur_arg);
+			}
+			else if (flag.conv_num == 6 || flag.conv_num == 14)
+			{
+//				printf("l'argument est [%s]", wiit.tab[i]);
 				spec = ft_special_c(cur_arg, flag);
+				if(!(spec.tab))
+					return (-1);
+				ft_nputstr(spec.tab, spec.len);
+				ret = ret + spec.len;
+				if(flag.width > 1)
+					free(spec.tab);
+//				free(cur_arg);
+			}
 			else
+			{
 				cur_arg = ft_flag_use(cur_arg, flag);
-			if (flag.conv_num == 6 || 14)
+				ret = ret + ft_strlen(cur_arg) ;
+				ft_putstr(cur_arg);
+//				free(cur_arg);
+			}
+/*			if (flag.conv_num == 6 || 14)
 			{
 				ft_nputstr(spec.tab, spec.len);
 				ret = ret + spec.len;
@@ -50,6 +70,7 @@ int		ft_printf(const char *format, ...)
 				ft_putstr(cur_arg);
 				free(cur_arg);
 			}
+*/			free(cur_arg);
 			free(wiit.tab[i]);
 		}
 		i++;
