@@ -47,12 +47,12 @@ static char	*ft_llitoa_malloc(long long int n, int j)
 
 char		*ft_llitoa(long long int n)
 {
-	long long int	i;
-	int				j;
+	long long	i;
+	int			j;
 
 	i = n;
 	j = 0;
-	if (n == -9223372036854775808)
+	if (i == -9223372036854775807)
 		return (ft_llitoa_min(n));
 	else if (i <= 0)
 	{

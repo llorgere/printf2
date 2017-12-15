@@ -52,7 +52,7 @@ char		*ft_ssttoa(ssize_t n)
 
 	i = n;
 	j = 0;
-	if (n == -9223372036854775808)
+	if (i == -9223372036854775807)
 		return (ft_ssttoa_min(n));
 	else if (i <= 0)
 	{
