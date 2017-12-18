@@ -572,9 +572,14 @@ spe_c	ft_special_c(char *str, flag_type flag)
 	{
 		spec.tab = malloc(sizeof(char)* flag.width + 1);
 		spec.tab[flag.width] = '\0';
-		while (i < flag.width)
+		while (i < flag.width && flag.zero == 0)
 		{
 			spec.tab[i] = ' ';
+			i++;
+		}
+		while (i < flag.width && flag.zero == 1)
+		{
+			spec.tab[i] = '0';
 			i++;
 		}
 		if (flag.minus == 0)

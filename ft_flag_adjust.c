@@ -31,10 +31,12 @@ flag_type	ft_flag_adjust(flag_type flag)
 			(flag.conv_num >= 32 && flag.conv_num <= 35) ||
 			(flag.conv_num >= 37 && flag.conv_num <= 41)))
 		flag.space = 0;
-	if (flag.zero == 1 && ((flag.conv_num == 6) || (flag.conv_num == 7) ||
-			(flag.conv_num == 14) || (flag.conv_num == 15) || flag.preci >= 0))
-		flag.zero = 0;
 	if (flag.preci >= 0 && (flag.conv_num == 6 || flag.conv_num == 8 || flag.conv_num == 14))
 		flag.preci = -1;
+/*	if (flag.zero == 1 && ((flag.conv_num == 6) || (flag.conv_num == 7) ||
+			(flag.conv_num == 14) || (flag.conv_num == 15) || flag.preci >= 0))
+		flag.zero = 0;
+*/	if (flag.zero == 1 && flag.preci >= 0)
+		flag.zero = 0;
 	return (flag);
 }

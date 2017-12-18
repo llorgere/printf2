@@ -230,7 +230,7 @@ flag_type		ft_arg_conv(char *tab)
 			flag.minus++;
 			i++;
 		}
-		else if (tab[i] == '+' && flag.plus == 0 && flag.width < 0 && flag.preci < 0)
+		else if (tab[i] == '+' && flag.plus == 0/* && flag.width < 0 && flag.preci < 0*/)
 		{
 			flag.plus++;
 			i++;
@@ -269,7 +269,7 @@ flag_type		ft_arg_conv(char *tab)
 			flag.preci = ft_atoi(tabpw);
 			free(tabpw);
 		}
-		else if (flag.width < 0 && flag.preci < 0)
+		else if (flag.width < 0 && flag.preci < 0 && flag.plus == 0)
 			i++;
 		else
 		{

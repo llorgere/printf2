@@ -90,9 +90,19 @@ int		main()
 	ft_printf("03.2d est [%03.0d]\n", 1);
 	printf("03.2d est [%3.2d]\n", 0);
 	ft_printf("03.2d est [%3.2d]\n", 0);
-*/	ft_printf("lld est [%lld]\n", e);
+	ft_printf("lld est [%lld]\n", e);
 	ft_printf("jd est [%jd]\n", e);
-//	ft_printf("[%s]\n", NULL);
+/	ft_printf("[%s]\n", NULL);
 //	ft_printf("[%.2c]\n", NULL);
+	printf("[%]\n");
+	ft_printf("[%]\n");
+*/	printf("[%5+d]\n", 42);
+	ft_printf("[%5+d]\n", 42);
+	printf("[%5+d]\n", -42);
+	ft_printf("[%5+d]\n", -42);
+	printf("[%-5+d]\n", 42);
+	ft_printf("[%-5+d]\n", 42);
+	printf("[%-5+d]\n", -42);
+	ft_printf("[%-5+d]\n", -42);
 	return (0);
 }
