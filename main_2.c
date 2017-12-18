@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "libftprintf.h"
+#include <stdint.h>
 
 int		main()
 {
@@ -7,11 +8,15 @@ int		main()
 	long int 	b;
 	long long int c;
 	int 		d;
+	long long	int	e;
+	ssize_t 		f;
 
 	a = 1789;
 	b = -2999900;
 	c = -989849849452;
 	d = 0;
+	e = -9223372036854775808;
+	f = -9223372036854775808;
 
 /*	ft_printf("test de a pour d [%-10.6d]\n", a);
 	ft_printf("test de a pour o [%o]\n", a);
@@ -69,7 +74,7 @@ int		main()
 	ft_printf("[%0+5d]\n", 42);
 	printf("[%0+5d]\n", -42);
 	ft_printf("[%0+5d]\n", -42);
-*/	printf("[%s]\n", NULL);
+//	printf("[%s]\n", NULL);
 	ft_printf("[%s]\n", NULL);
 	printf("[%s] [%s]\n", NULL, "string");
 	ft_printf("[%s] [%s]\n", NULL, "string");
@@ -85,6 +90,8 @@ int		main()
 	ft_printf("03.2d est [%03.0d]\n", 1);
 	printf("03.2d est [%3.2d]\n", 0);
 	ft_printf("03.2d est [%3.2d]\n", 0);
+*/	ft_printf("lld est [%lld]\n", e);
+	ft_printf("jd est [%jd]\n", e);
 //	ft_printf("[%s]\n", NULL);
 //	ft_printf("[%.2c]\n", NULL);
 	return (0);

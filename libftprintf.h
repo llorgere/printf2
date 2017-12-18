@@ -12,6 +12,7 @@
 # include <stdarg.h>
 # include <wchar.h>
 # include <stdio.h>
+# include <limits.h>
 
 typedef struct
 {
